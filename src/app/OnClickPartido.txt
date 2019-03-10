@@ -1,0 +1,113 @@
+ onClickPartido(partido: string) {
+    this.selectedPartido = partido;
+
+    if (this.geoJson) {
+      this.geoJson.remove();
+    }
+
+    if (this.legend) {
+      this.legend.remove();
+    }
+
+    if (this.selectedPartido === 'Ayuda') {
+       // Obtener el elemento que muestra la ayuda.
+    const VentanaAyuda = document.getElementById('idAyuda');
+
+      // Obtener el elemento <span> que cierra la ayuda.
+    const span = document.getElementsByClassName('close')[0];
+
+      // When the user clicks on the button, open the modal
+    VentanaAyuda.style.display = 'block';
+
+    // When the user clicks on <span> (x), close the modal
+    // span.onclick = function () {
+    // VentanaAyuda.style.display = 'none';
+    //  };
+    // span.onclick = () => {
+    //   modal.style.display = 'none';
+    //    };
+
+    // When the user clicks anywhere outside of the modal, close it
+    // window.onclick = function (event) {
+    // if (event.target === VentanaAyuda) {
+    //       modal.style.display = 'none';
+    //     }
+    //   };
+    window.onclick = (event) => {
+        if (event.target === VentanaAyuda) {
+          VentanaAyuda.style.display = 'none';
+            }
+          };
+    } else if (this.selectedPartido === 'Primero' ) {
+      this.geoJson = geoJSON(distritosGanador as GeoJsonObject, {
+        style: this.style2(),
+        onEachFeature: this.onEachFeature
+      }).addTo(this.map);
+      this.legend = new Control({ position: 'bottomright' });
+      this.legend.onAdd = () => {
+        const div = DomUtil.create('div', 'info legend');
+
+        // Card Intervalos partido ganador.
+        div.innerHTML +=
+            '<i class="intervals-icons" style="background:blue;"></i> PP<br><br>' +
+            '<i class="intervals-icons" style="background:red;"></i> PSOE<br><br>' +
+            '<i class="intervals-icons" style="background:green;"></i> Ganemos<br>';
+
+        return div;
+      };
+      this.legend.addTo(this.map);
+    } else if (this.selectedPartido === 'Gráfico' ) {
+      // Obtener el elemento que muestra la ayuda.
+        const VentanaGrafico = document.getElementById('idGrafico');
+
+        // Obtener el elemento <span> que cierra la ayuda.
+        const span = document.getElementsByClassName('close')[0];
+
+        // When the user clicks on the button, open the modal
+        VentanaGrafico.style.display = 'block';
+
+      // When the user clicks on <span> (x), close the modal
+      // span.onclick = function () {
+      // VentanaAyuda.style.display = 'none';
+      //  };
+      // span.onclick = () => {
+      //   modal.style.display = 'none';
+      //    };
+
+      // When the user clicks anywhere outside of the modal, close it
+      // window.onclick = function (event) {
+      // if (event.target === VentanaAyuda) {
+      //       modal.style.display = 'none';
+      //     }
+      //   };
+        window.onclick = (event) => {
+          if (event.target === VentanaGrafico) {
+            VentanaGrafico.style.display = 'none';
+              }
+        };
+    } else {
+      this.legend = new Control({ position: 'bottomright' });
+      this.legend.onAdd = () => {
+        const div = DomUtil.create('div', 'info legend');
+        const grades = gradesPartidos[partido];
+
+        // Card Intervalos.
+        for (let i = 0; i < grades.length; i++) {
+          div.innerHTML +=
+            '<i class="intervals-icons" style="background:' +
+            this.getColor(gradesPartidos[partido])(grades[i] + 1) +
+            '"></i> ' +
+            grades[i] +
+            (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
+        }
+        return div;
+      };
+      this.legend.addTo(this.map);
+
+      this.geoJson = geoJSON(distritos as GeoJsonObject, {
+        style: this.style(partido),
+        onEachFeature: this.onEachFeature
+      }).addTo(this.map);
+    }
+  }
+

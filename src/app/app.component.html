@@ -1,0 +1,20 @@
+<!-- https://material.angular.io/components/button/examples -->
+<mat-drawer-container class="example-container">
+  <mat-drawer mode="side" opened>
+    <div id="buttons-partidos">
+      <button
+        mat-flat-button
+        *ngFor="let partido of partidos"
+        [color]="selectedPartido === partido.name ? 'warn' : ''"
+        (click)="onClickPartido(partido.name)"
+      >
+        <img [src]="partido.icon" />
+      </button>
+    </div>
+
+  </mat-drawer>
+
+  <mat-drawer-content>
+    <div id="map"></div>
+  </mat-drawer-content>
+</mat-drawer-container>
