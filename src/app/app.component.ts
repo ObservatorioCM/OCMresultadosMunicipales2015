@@ -23,7 +23,6 @@ interface Partido {
   icon: string;
 }
 
-
 @Component({
   selector: 'ocm-root',
   templateUrl: './app.component.html',
