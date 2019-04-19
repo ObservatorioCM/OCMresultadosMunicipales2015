@@ -38,21 +38,39 @@ export class AppComponent implements OnInit {
   feature: object;
 
   selectedPartido = '';
+  // partidos: Partido[] = [
+  //   { name: 'PP', icon: '../assets/icons-/IcoPP.png' },
+  //   { name: 'PSOE', icon: '../assets/icons-/IcoPSOE.png' },
+  //   { name: 'GANEMOS', icon: '../assets/icons-/IcoGanemos.png' },
+  //   { name: 'CIUDADANOS', icon: '../assets/icons-/IcoCiudadanos.png' },
+  //   { name: 'IU', icon: '../assets/icons-/IcoIU.png' },
+  //   { name: 'PA', icon: '../assets/icons-/IcoPA.png' },
+  //   { name: 'UPyD', icon: '../assets/icons-/IcoUPyD.png' },
+  //   { name: 'IPJ', icon: '../assets/icons-/IcoIPJ.png' },
+  //   { name: 'FCJ', icon: '../assets/icons-/IcoForoCiudadanoJerez.png' },
+  //   { name: 'PCPE', icon: '../assets/icons-/IcoPCPE.png' },
+  //   { name: 'Abstención', icon: '../assets/icons-/IcoAbstencion.png' },
+  //   { name: 'Primero', icon: '../assets/icons-/Primero.png' },
+  //   { name: 'Gráfico', icon: '../assets/icons-/IcoGrafico.png' },
+  //   { name: 'Ayuda', icon: '../assets/icons-/ayuda2.png' }
+  // ];
+
+  //  Al comentar  <base href="/"> tengo que cambiar la ruta para que encuentre los iconos
   partidos: Partido[] = [
-    { name: 'PP', icon: '../assets/icons-/IcoPP.png' },
-    { name: 'PSOE', icon: '../assets/icons-/IcoPSOE.png' },
-    { name: 'GANEMOS', icon: '../assets/icons-/IcoGanemos.png' },
-    { name: 'CIUDADANOS', icon: '../assets/icons-/IcoCiudadanos.png' },
-    { name: 'IU', icon: '../assets/icons-/IcoIU.png' },
-    { name: 'PA', icon: '../assets/icons-/IcoPA.png' },
-    { name: 'UPyD', icon: '../assets/icons-/IcoUPyD.png' },
-    { name: 'IPJ', icon: '../assets/icons-/IcoIPJ.png' },
-    { name: 'FCJ', icon: '../assets/icons-/IcoForoCiudadanoJerez.png' },
-    { name: 'PCPE', icon: '../assets/icons-/IcoPCPE.png' },
-    { name: 'Abstención', icon: '../assets/icons-/IcoAbstencion.png' },
-    { name: 'Primero', icon: '../assets/icons-/Primero.png' },
-    { name: 'Gráfico', icon: '../assets/icons-/IcoGrafico.png' },
-    { name: 'Ayuda', icon: '../assets/icons-/ayuda2.png' }
+    { name: 'PP', icon: 'assets/icons-/IcoPP.png' },
+    { name: 'PSOE', icon: 'assets/icons-/IcoPSOE.png' },
+    { name: 'GANEMOS', icon: 'assets/icons-/IcoGanemos.png' },
+    { name: 'CIUDADANOS', icon: 'assets/icons-/IcoCiudadanos.png' },
+    { name: 'IU', icon: 'assets/icons-/IcoIU.png' },
+    { name: 'PA', icon: 'assets/icons-/IcoPA.png' },
+    { name: 'UPyD', icon: 'assets/icons-/IcoUPyD.png' },
+    { name: 'IPJ', icon: 'assets/icons-/IcoIPJ.png' },
+    { name: 'FCJ', icon: 'assets/icons-/IcoForoCiudadanoJerez.png' },
+    { name: 'PCPE', icon: 'assets/icons-/IcoPCPE.png' },
+    { name: 'Abstención', icon: 'assets/icons-/IcoAbstencion.png' },
+    { name: 'Primero', icon: 'assets/icons-/Primero.png' },
+    { name: 'Gráfico', icon: 'assets/icons-/IcoGrafico.png' },
+    { name: 'Ayuda', icon: 'assets/icons-/ayuda2.png' }
   ];
 
   // Configuración del mapa base.
